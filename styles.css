@@ -438,3 +438,30 @@ body {
   background: var(--accent-orange);
   width: 35px;
 }
+.contact-form-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+}
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row.three-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.contact-form-wrapper input,
+.contact-form-wrapper textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  outline: none;
+}
+.form-submit {
+  margin-top: 1.5rem;
+}
