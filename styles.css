@@ -132,3 +132,96 @@ body {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+.hero {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
+
+.hero-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+}
+
+.name {
+  font-size: 1.3rem;
+  color: var(--accent-orange);
+  margin-bottom: 0.3rem;
+}
+
+.main-title {
+  font-size: 3rem;
+  line-height: 1.2;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-desc {
+  color: var(--text-gray);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-socials {
+  margin-top: 2rem;
+}
+
+.social-links a {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-white);
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.social-links a:hover {
+  background: var(--accent-orange);
+  transform: translateY(-3px);
+}
+
+.circular-img-container {
+  position: relative;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+  border: 4px solid var(--accent-orange);
+}
+
+.circular-img-container .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.circular-img-container .slide.active {
+  opacity: 1;
+}
+
+.circular-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
