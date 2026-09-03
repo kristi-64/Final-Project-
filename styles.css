@@ -465,3 +465,26 @@ body {
 .form-submit {
   margin-top: 1.5rem;
 }
+.footer {
+  background: #111111;
+  padding: 3rem 0;
+  margin-top: 3rem;
+}
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  color: var(--text-gray);
+  font-size: 0.9rem;
+}
+.footer-nav a:hover {
+  color: var(--accent-orange);
+}
