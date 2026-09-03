@@ -280,3 +280,37 @@ body {
   border: 2px solid var(--accent-orange);
   border-radius: 50%;
 }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: #ffffff;
+  color: #1a1a1a;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: var(--accent-orange);
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  color: #666;
+  font-size: 0.85rem;
+}
