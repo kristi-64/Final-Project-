@@ -225,3 +225,58 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-text {
+  color: var(--text-gray);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+.skills-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.skill-name {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #333;
+  border-radius: 10px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-orange);
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out;
+  position: relative;
+}
+
+.progress::after {
+  content: "";
+  position: absolute;
+  right: -5px;
+  top: -3px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 2px solid var(--accent-orange);
+  border-radius: 50%;
+}
