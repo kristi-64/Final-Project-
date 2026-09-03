@@ -1,0 +1,10 @@
+:root {
+  --bg-color: #1a1a1a;
+  --bg-card: #242424;
+  --accent-orange: #ff5722;
+  --accent-orange-hover: #e64a19;
+  --text-white: #ffffff;
+  --text-gray: #a0a0a0;
+  --font-family: "Poppins", sans-serif;
+  --transition: all 0.3s ease;
+}
