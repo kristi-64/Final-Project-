@@ -24,4 +24,21 @@ const heroSlides = document.querySelectorAll("#heroSlider .slide");
     heroSlides[currentHeroSlide].classList.add("active");
   }if (heroSlides.length > 0) {
     setInterval(rotateHeroSlides, 5000);
-  }
+  }const skillsWrapper = document.getElementById("skillsWrapper");
+  const progressBars = document.querySelectorAll(".progress");
+  let animated = false;
+  const skillsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !animated) {
+        progressBars.forEach((bar) => {
+          const val = bar.getAttribute("data-value");
+          bar.style.width = val;
+        });
+        animated = true;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  if (skillsWrapper) {
+    skillsObserver.observe(skillsWrapper);
+  }}
