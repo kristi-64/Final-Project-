@@ -15,3 +15,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+const heroSlides = document.querySelectorAll("#heroSlider .slide");
+  let currentHeroSlide = 0;
+  function rotateHeroSlides() {
+    if (heroSlides.length === 0) return;
+    heroSlides[currentHeroSlide].classList.remove("active");
+    currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+    heroSlides[currentHeroSlide].classList.add("active");
+  }if (heroSlides.length > 0) {
+    setInterval(rotateHeroSlides, 5000);
+  }
