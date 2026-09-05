@@ -63,3 +63,58 @@ const heroSlides = document.querySelectorAll("#heroSlider .slide");
       });
     });
   });
+
+  const testimonials = [
+    {
+      text: '"Lorem ipsum dolor sit amet consectetur. In id cursus nibh scelerisque. At leo urna velit neque molestie id tellus vitae."',
+      img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+      name: "Name 1",
+      role: "CEO",
+    },
+    {
+      text: '"Kristine managed to deliver our web project well ahead of schedule. The code quality and attention to detail are top-notch!"',
+      img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+      name: "George Maisuradze",
+      role: "Project Manager",
+    },
+    {
+      text: '"Extremely pleased with how accurately the Figma design was translated into clean, responsive HTML/CSS code. Highly recommended!"',
+      img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+      name: "Nino Beridze",
+      role: "Product Owner",
+    },
+    {
+      text: '"Fast communication, high responsibility, and true professionalism! We will definitely work together on future projects."',
+      img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+      name: "David Kipiani",
+      role: "CTO",
+    },
+  ];
+
+  const testiText = document.getElementById("testiText");
+  const testiImg = document.getElementById("testiImg");
+  const testiName = document.getElementById("testiName");
+  const testiRole = document.getElementById("testiRole");
+  const dots = document.querySelectorAll(".slider-dots .dot");
+  const testimonialCard = document.getElementById("testimonialCard");
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      const index = parseInt(dot.getAttribute("data-index"));
+
+      dots.forEach((d) => d.classList.remove("active"));
+      dot.classList.add("active");
+
+      if (testimonialCard) {
+        testimonialCard.style.opacity = "0";
+
+        setTimeout(() => {
+          testiText.textContent = testimonials[index].text;
+          testiImg.src = testimonials[index].img;
+          testiName.textContent = testimonials[index].name;
+          testiRole.textContent = testimonials[index].role;
+          testimonialCard.style.opacity = "1";
+        }, 300);
+      }
+    });
+  });
