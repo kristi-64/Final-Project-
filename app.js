@@ -15,29 +15,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-const heroSlides = document.querySelectorAll("#heroSlider .slide");
+  const heroSlides = document.querySelectorAll("#heroSlider .slide");
   let currentHeroSlide = 0;
   function rotateHeroSlides() {
     if (heroSlides.length === 0) return;
     heroSlides[currentHeroSlide].classList.remove("active");
     currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
     heroSlides[currentHeroSlide].classList.add("active");
-  }if (heroSlides.length > 0) {
+  }
+  if (heroSlides.length > 0) {
     setInterval(rotateHeroSlides, 5000);
-  }const skillsWrapper = document.getElementById("skillsWrapper");
+  }
+  const skillsWrapper = document.getElementById("skillsWrapper");
   const progressBars = document.querySelectorAll(".progress");
   let animated = false;
-  const skillsObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !animated) {
-        progressBars.forEach((bar) => {
-          const val = bar.getAttribute("data-value");
-          bar.style.width = val;
-        });
-        animated = true;
-      }
-    });
-  }, { threshold: 0.3 });
+  const skillsObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !animated) {
+          progressBars.forEach((bar) => {
+            const val = bar.getAttribute("data-value");
+            bar.style.width = val;
+          });
+          animated = true;
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
 
   if (skillsWrapper) {
     skillsObserver.observe(skillsWrapper);
@@ -118,3 +123,46 @@ const heroSlides = document.querySelectorAll("#heroSlider .slide");
       }
     });
   });
+  const contactForm = document.getElementById("contactForm");
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalClose = document.getElementById("modalClose");
+  const modalBtn = document.getElementById("modalBtn");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const payload = {
+        name: document.getElementById("name").value.trim(),
+        email: document.getElementById("email").value.trim(),
+        website: document.getElementById("website").value.trim(),
+        message: document.getElementById("message").value.trim(),
+      };
+
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          },
+        );
+
+        if (response.ok) {
+          contactForm.reset();
+          if (modalBackdrop) modalBackdrop.classList.add("show");
+        }
+      } catch (err) {
+        console.error("Form submission error:", err);
+      }
+    });
+  }
+
+  function closeModal() {
+    if (modalBackdrop) modalBackdrop.classList.remove("show");
+  }
+
+  if (modalClose) modalClose.addEventListener("click", closeModal);
+  if (modalBtn) modalBtn.addEventListener("click", closeModal);
+});
